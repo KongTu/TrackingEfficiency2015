@@ -4,6 +4,7 @@ using namespace std;
 /*
 Read ME:
 This is a simple way to get efficiency correction in bins of pT, eta, and centrality
+similarly for 2D case. 
 */
 
 void Demo(){
