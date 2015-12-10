@@ -1,6 +1,6 @@
 #include "RiceStyle.h"
 
-void plotHistHi() {
+void plotHist2D() {
 
   RiceStyle();
 
