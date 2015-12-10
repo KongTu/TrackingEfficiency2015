@@ -170,7 +170,7 @@ void plotHist2D() {
   hDumPtEff->GetYaxis()->SetTitle("Absolute efficiency");
   c7->cd(1); gPad->SetTicks(); c7->GetPad(1)->SetLeftMargin(0.12); c7->GetPad(1)->SetBottomMargin(0.13); c7->GetPad(1)->SetLogx(0); hDumEtaEff->Draw(); gEffEta->Draw("pc"); gEffEta2->Draw("pc"); legEta->Draw();
   c7->cd(2); gPad->SetTicks(); c7->GetPad(2)->SetLeftMargin(0.12); c7->GetPad(2)->SetBottomMargin(0.13); c7->GetPad(2)->SetLogx(); hDumPtEff->Draw(); gEffPt->Draw("pc"); gEffPt2->Draw("pc"); legPt->Draw();
-  saveCanvas(c7, "plots", "AbsoluteEfficiency");
+  //saveCanvas(c7, "plots", "AbsoluteEfficiency");
 
   // Multiple Reco
   TGraphAsymmErrors *gMulEta = new TGraphAsymmErrors(); gMulEta->SetName("gMulEta");
@@ -208,7 +208,7 @@ void plotHist2D() {
   legPt2 = (TLegend*) legPt->Clone(); legPt2->SetY1(0.65); legPt2->SetY2(0.85);
   c8->cd(1); gPad->SetLogx(0); gPad->SetTicks(); c8->GetPad(1)->SetLeftMargin(0.12); c8->GetPad(1)->SetBottomMargin(0.13); hDumEtaMul->Draw(); gMulEta->Draw("pc"); gMulEta2->Draw("pc"); legEta2->Draw();
   c8->cd(2); gPad->SetLogx(1); gPad->SetTicks(); c8->GetPad(2)->SetLeftMargin(0.12); c8->GetPad(2)->SetBottomMargin(0.13); hDumPtMul->Draw(); gMulPt->Draw("pc"); gMulPt2->Draw("pc"); legPt2->Draw();
-  saveCanvas(c8, "plots", "MultipleReconstruction");
+  //saveCanvas(c8, "plots", "MultipleReconstruction");
   
   // Fakes
   TGraphAsymmErrors *gFakEta = new TGraphAsymmErrors();  gFakEta->SetName("gFakEta");
@@ -247,7 +247,7 @@ void plotHist2D() {
   gPad->SetTicks(); gPad->SetLeftMargin(0.12); gPad->SetBottomMargin(0.13);
   c9->cd(2); hDumPtFak->Draw(); gFakPt->Draw("pc"); gFakPt2->Draw("pc"); legPt2->Draw();
   gPad->SetTicks(); gPad->SetLeftMargin(0.12); gPad->SetBottomMargin(0.13); gPad->SetLogx(1);
-  saveCanvas(c9, "plots", "FakeRate");
+  //saveCanvas(c9, "plots", "FakeRate");
 //  c9->GetPad(2)->SetLogx();
 
   // Secondaries
@@ -287,7 +287,7 @@ void plotHist2D() {
   c10->cd(2); hDumPtSec->Draw(); gSecPt->Draw("pc"); gSecPt2->Draw("pc"); legPt2->Draw();
   gPad->SetTicks(); gPad->SetLeftMargin(0.15); gPad->SetBottomMargin(0.13); gPad->SetLogx(1);
 
-  saveCanvas(c10, "plots", "SecondaryReconstruction");
+  //saveCanvas(c10, "plots", "SecondaryReconstruction");
 
   TFile *fout = new TFile("test.root","RECREATE");
   gEffPt->Write(); gEffPt2->Write(); gEffEta->Write(); gEffEta2->Write();

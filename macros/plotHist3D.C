@@ -135,7 +135,7 @@ void plotHist3D() {
   hDumPtEff->GetYaxis()->SetTitle("Absolute efficiency");
   c7->cd(1); gPad->SetTicks(); c7->GetPad(1)->SetLeftMargin(0.12); c7->GetPad(1)->SetBottomMargin(0.13); c7->GetPad(1)->SetLogx(0); hDumEtaEff->Draw(); gEffEta->Draw("pc"); gEffEta2->Draw("pc"); legEta->Draw();
   c7->cd(2); gPad->SetTicks(); c7->GetPad(2)->SetLeftMargin(0.12); c7->GetPad(2)->SetBottomMargin(0.13); c7->GetPad(2)->SetLogx(); hDumPtEff->Draw(); gEffPt->Draw("pc"); gEffPt2->Draw("pc"); legPt->Draw();
-  saveCanvas(c7, "plots3D", "AbsoluteEfficiency");
+  //saveCanvas(c7, "plots3D", "AbsoluteEfficiency");
 
   // Multiple Reco
   TGraphAsymmErrors *gMulEta = new TGraphAsymmErrors(); gMulEta->SetName("gMulEta");
@@ -173,7 +173,7 @@ void plotHist3D() {
   legPt2 = (TLegend*) legPt->Clone(); legPt2->SetY1(0.65); legPt2->SetY2(0.85);
   c8->cd(1); gPad->SetLogx(0); gPad->SetTicks(); c8->GetPad(1)->SetLeftMargin(0.12); c8->GetPad(1)->SetBottomMargin(0.13); hDumEtaMul->Draw(); gMulEta->Draw("pc"); gMulEta2->Draw("pc"); legEta2->Draw();
   c8->cd(2); gPad->SetLogx(1); gPad->SetTicks(); c8->GetPad(2)->SetLeftMargin(0.12); c8->GetPad(2)->SetBottomMargin(0.13); hDumPtMul->Draw(); gMulPt->Draw("pc"); gMulPt2->Draw("pc"); legPt2->Draw();
-  saveCanvas(c8, "plots3D", "MultipleReconstruction");
+  //saveCanvas(c8, "plots3D", "MultipleReconstruction");
   
   // Fakes
   TGraphAsymmErrors *gFakEta = new TGraphAsymmErrors();  gFakEta->SetName("gFakEta");
@@ -202,7 +202,6 @@ void plotHist3D() {
   gFakPt2->SetLineColor(4);
   gFakPt2->SetMarkerColor(4);
 
-  //TCanvas *c9 = new TCanvas("c9","Fake Fraction",900,500);
   TCanvas* c9 = makeMultiCanvas("c9", "Fake Fraction", 2,1);
   hDumEtaFak=(TH1F*) hDumEta2->Clone("hDumEtaMul"); fixedFontHist1D(hDumEtaFak, 1.05,1.2); hDumEtaFak->GetYaxis()->SetRangeUser(0.,0.09);
   hDumEtaFak->GetYaxis()->SetTitle("Fake Reconstruction Fraction");
@@ -212,8 +211,7 @@ void plotHist3D() {
   gPad->SetTicks(); gPad->SetLeftMargin(0.12); gPad->SetBottomMargin(0.13);
   c9->cd(2); hDumPtFak->Draw(); gFakPt->Draw("pc"); gFakPt2->Draw("pc"); legPt2->Draw();
   gPad->SetTicks(); gPad->SetLeftMargin(0.12); gPad->SetBottomMargin(0.13); gPad->SetLogx(1);
-  saveCanvas(c9, "plots3D", "FakeRate");
-//  c9->GetPad(2)->SetLogx();
+  //saveCanvas(c9, "plots3D", "FakeRate");
 
   // Secondaries
   TGraphAsymmErrors *gSecEta = new TGraphAsymmErrors(); gSecEta->SetName("gSecEta");
@@ -251,8 +249,7 @@ void plotHist3D() {
   gPad->SetTicks(); gPad->SetLeftMargin(0.15); gPad->SetBottomMargin(0.13); 
   c10->cd(2); hDumPtSec->Draw(); gSecPt->Draw("pc"); gSecPt2->Draw("pc"); legPt2->Draw();
   gPad->SetTicks(); gPad->SetLeftMargin(0.15); gPad->SetBottomMargin(0.13); gPad->SetLogx(1);
-
-  saveCanvas(c10, "plots3D", "SecondaryReconstruction");
+  //saveCanvas(c10, "plots3D", "SecondaryReconstruction");
 
   TFile *fout = new TFile("test.root","RECREATE");
   gEffPt->Write(); gEffPt2->Write(); gEffEta->Write(); gEffEta2->Write();
